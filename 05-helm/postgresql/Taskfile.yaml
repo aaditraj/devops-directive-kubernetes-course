@@ -6,7 +6,7 @@ env:
   PADDING: "1 1"
   MARGIN: "1 1"
   POSTGRES_VERSION_1: 15.4.1
-  POSTGRES_VERSION_2: 15.4.2
+  POSTGRES_VERSION_2: 16.0.0
   NAMESPACE: 05--postgresql
 
 tasks:

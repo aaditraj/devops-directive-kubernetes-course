@@ -51,7 +51,7 @@ tasks:
   05-create-new-nodepool:
     desc: "Provision a new nodepool with the update control plane version"
     vars:
-      GCP_PROJECT_ID: kubernetes-course-424917
+      GCP_PROJECT_ID: trusty-stacker-463620-k3
     cmds:
       - |
         gcloud container node-pools create updated-node-pool \

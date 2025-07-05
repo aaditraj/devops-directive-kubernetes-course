@@ -15,4 +15,4 @@ spec:
   serviceAccountTemplate:
     metadata:
       annotations:
-        iam.gke.io/gcp-service-account: cnpg-backups@kubernetes-course-424917.iam.gserviceaccount.com
+        iam.gke.io/gcp-service-account: cnpg-backups@trusty-stacker-463620-k3.iam.gserviceaccount.com

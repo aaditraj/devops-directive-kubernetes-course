@@ -48,18 +48,18 @@ tasks:
         silent: true
       - |
         gsutil iam ch \
-          serviceAccount:cnpg-backups@kubernetes-course-424917.iam.gserviceaccount.com:roles/storage.objectAdmin \
+          serviceAccount:cnpg-backups@trusty-stacker-463620-k3.iam.gserviceaccount.com:roles/storage.objectAdmin \
           gs://{{.BUCKET_NAME}}
         gsutil iam ch \
-          serviceAccount:cnpg-backups@kubernetes-course-424917.iam.gserviceaccount.com:roles/storage.legacyBucketReader \
+          serviceAccount:cnpg-backups@trusty-stacker-463620-k3.iam.gserviceaccount.com:roles/storage.legacyBucketReader \
           gs://{{.BUCKET_NAME}}
 
       - cmd: gum style "Attach roles/iam.workloadIdentityUser to kubernetes service account"
         silent: true
       - |
-        gcloud iam service-accounts add-iam-policy-binding cnpg-backups@kubernetes-course-424917.iam.gserviceaccount.com \
+        gcloud iam service-accounts add-iam-policy-binding cnpg-backups@trusty-stacker-463620-k3.iam.gserviceaccount.com \
           --role roles/iam.workloadIdentityUser \
-          --member "serviceAccount:kubernetes-course-424917.svc.id.goog[09--cnpg/cnpg-with-backup-config]"
+          --member "serviceAccount:trusty-stacker-463620-k3.svc.id.goog[09--cnpg/cnpg-with-backup-config]"
 
   06-apply-cluster-with-backup-config-gcp:
     desc: "Apply cnpg cluster definition with backup configuration"

@@ -1,0 +1,47 @@
+############################################
+# Kubernetes Job Debugging Commands
+# Save this file as commands.txt
+# Copy and run as needed!
+############################################
+
+# 🌟 Watch jobs being created and finished
+kubectl get jobs --watch
+
+# 🌀 See all pods and their status in real-time
+kubectl get pods -w
+
+# 🔎 See which node each pod is running on (for checking scheduler decisions)
+kubectl get pods -o wide
+
+# 📄 Describe a specific job (shows failures, retries, backoff info)
+kubectl describe job <job-name>
+
+# 📄 Describe a specific pod (details about why it failed, events, exit codes)
+kubectl describe pod <pod-name>
+
+# all the pods spawned by a specific job
+kubectl get pods -l job-name=<job-name>
+
+# 🗒️ Check logs of a pod (see your sleep durations or failure messages)
+kubectl logs <pod-name>
+
+# 💥 See only failed pods
+kubectl get pods --field-selector=status.phase=Failed
+
+# ✅ See only completed pods
+kubectl get pods --field-selector=status.phase=Succeeded
+
+# 📦 List nodes and their resource usage summary (shows allocated resources)
+kubectl describe nodes
+
+# 💻 Get current namespace
+kubectl config view --minify | grep namespace
+
+# 🚨 If jobs get stuck, delete a job and its pods
+kubectl delete job <job-name>
+
+# 🧹 Delete all completed pods (if you want to clean up)
+kubectl delete pod $(kubectl get pods --field-selector=status.phase=Succeeded -o name)
+
+# 🧹 Delete all failed pods
+kubectl delete pod $(kubectl get pods --field-selector=status.phase=Failed -o name)

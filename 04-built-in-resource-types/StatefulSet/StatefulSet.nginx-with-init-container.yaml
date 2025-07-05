@@ -16,12 +16,6 @@ spec:
       initContainers:
         - name: populate-default-html
           image: nginx:1.26.0
-          # Nginx is a silly example to use for a stateful application (you should use a deployment for nginx)
-          # but this demonstrates how you can use an init container to pre-populate a pod specific config file
-          # For example, you might configure a database StatefulSet with some pods having read/write access, and
-          # others only providing read access.
-          #
-          # See: https://kubernetes.io/docs/tasks/run-application/run-replicated-stateful-application/
           command:
             - bash
             - "-c"

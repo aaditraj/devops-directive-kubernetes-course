@@ -6,6 +6,7 @@ nodes:
   - role: worker
     extraMounts:
       - hostPath: ${REPLACE_WITH_ABSOLUTE_PATH}/kind-bind-mount-1
+      
         containerPath: /some/path/in/container
   - role: worker
     extraMounts:
